@@ -1,3 +1,5 @@
+# michaels carDB for 12 credits
+
 from flask import Flask, render_template, abort, request, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 from forms import Select_Movie
