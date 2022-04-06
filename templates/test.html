@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1>add movie</h1>
+
+{% for movie in movies %}
+    <p>{{ movie.id }}{{ movie.title }}{{movie.year}}</p>
+
+{% endfor %}
+
+{% endblock %}

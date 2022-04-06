@@ -1,0 +1,19 @@
+body {
+  background-color: lightblue;
+}
+
+a{
+  font-size: 20px;
+}
+
+
+h1 {
+  color: red;
+  text-align: center;
+}
+
+p {
+  font-family: helvetica;
+  font-size: 25px;
+  color: black;
+}
