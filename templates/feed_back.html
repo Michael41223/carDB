@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1 style="color:green";>Feed Back</h1>
+
+{% for movie in movies %}
+    </form></p>
+{% endfor %}
+</br>
+Add Comment
+<form action="/add_movie" method="post">
+<input type="text" name="title>
+<input type="text" name="Year">
+<input type="submit" value="Enter">
+</form>
+
+{% endblock %}
