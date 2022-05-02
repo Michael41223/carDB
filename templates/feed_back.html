@@ -4,14 +4,19 @@
 <h1 style="color:green";>Feed Back</h1>
 
 {% for movie in movies %}
+    <p>{{ movie.id }}{{ movie.title }}{{ movie.year }}
+    <form action="/delete_movie" method="post">
+    <input type="hidden" value="{{movie.id}}" name="movie_id">
+    <input type="submit" value="Delete">
     </form></p>
 {% endfor %}
 </br>
-Add Comment
+<h3></h3>
+Comment Here
 <form action="/add_movie" method="post">
-<input type="text" name="title>
+<input type="text" name="Movie title">
 <input type="text" name="Year">
-<input type="submit" value="Enter">
+<input type="submit" value="add">
 </form>
 
 {% endblock %}
