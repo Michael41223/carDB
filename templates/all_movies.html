@@ -1,8 +1,0 @@
-{% extends 'layout.html' %}
-{% block content %}
-
-{% for movie in movies %}
-    <p><a href="/movie/{{ movie.id }}">{{ movie.title }}</a></p>
-{% endfor %}
-
-{% endblock %}
