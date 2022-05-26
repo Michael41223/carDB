@@ -1,15 +1,13 @@
 {% extends 'layout.html' %}
 {% block content %}
-<title>vdgfdgfd{{movie.title}}</title>
-<h1 style="color:green";>Movie details</h1>
+<title>{{car.title}}</title>
+<h1 style="color:green";>car details</h1>
 
-<h1>{{movie.title}}</h1>
+<h1>{{car.title}}</h1>
 <b>Manufacturer Date: </b>
-{{movie.year}} </br>
+{{car.year}} </br>
 <b>Kilometers: </b>
-{{movie.description}}</br>
-
-{% for person in movie.actors %}
+{{car.description}}</br>
 
 
 {% endfor %}

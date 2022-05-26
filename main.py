@@ -6,7 +6,7 @@ from forms import Select_Movie
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///cars.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///carsV2.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'correcthorsebatterystaple'
 
@@ -34,22 +34,20 @@ def about_us():
 
 ######################## list all cars ########################
   
-# list all the movies
+# list all the cars
 @app.route('/all_cars')
-def all_movies():
-    #movies = models.Movie.query.all()
-    return render_template('all_cars.html', page_title="ALL MOVIES")
+def all_cars():
+    cars = models.Cars.query.all()
+    return render_template('all_cars.html', page_title="ALL CARS", cars = cars)
 
 ######################## DISPLAY car ########################
-  
-# details of one movie
+
 @app.route('/car/<int:id>')
 def car():
   return render_template('car.html', page_title="Display car")
 
 ######################## DISPLAY car ########################
   
-# details of one movie
 @app.route('/feed_back')
 def feed_back():
   return render_template('feed_back.html', page_title="FEEDBACK")
