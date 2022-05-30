@@ -6,7 +6,7 @@ from forms import Select_Movie
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///cars.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///carsV2.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'correcthorsebatterystaple'
 
@@ -36,8 +36,11 @@ def about_us():
   
 # list all the cars
 @app.route('/all_cars')
+
 def all_cars():
-    return render_template('all_cars.html', page_title="ALL CARS")
+  cars = models.Cars.query.all()
+  print(cars)
+  return render_template('all_cars.html', page_title="ALL CARS", cars=cars)
 
 ######################## DISPLAY car ########################
 
