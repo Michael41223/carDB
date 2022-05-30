@@ -1,11 +1,36 @@
 from main import db
 
-class Cars(db.Model):
-    __tablename__ = 'cars'
+class Movie(db.Model):
+    __tablename__ = 'Movie'
 
-    carId = db.Column(db.Integer, primary_key=True)
-    make = db.Column(db.String())
-    model = db.Column(db.Integer)
-    engine = db.Column(db.String())
-    carimage = db.Column(db.String())
-    engineimage = db.Column(db.String())
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(80))
+    year = db.Column(db.Integer)
+    description = db.Column(db.String())
+    actors = db.relationship('Role', back_populates='movie')
+
+  #use the magic method __repr__ to display it when people use it.
+    def __repr__(self):
+        return f"New Movie = {self.title} : {self.year}"
+
+class Actor(db.Model):
+    __tablename__ = 'Actor'
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(80), nullable = False)
+    birthdate = db.Column(db.String(30))
+    movies = db.relationship('Role', back_populates='actor')
+ 
+    def __str__(self):
+        return self.name
+
+class Role(db.Model):
+    __tablename__ = 'Role'
+
+    id = db.Column(db.Integer, primary_key=True)
+    movie_id = db.Column(db.Integer, db.ForeignKey('Movie.id'), nullable = False)
+    actor_id = db.Column(db.Integer, db.ForeignKey('Actor.id'), nullable = False)
+    role = db.Column(db.String(80), nullable = False)
+
+    actor = db.relationship('Actor', back_populates='movies')
+    movie = db.relationship('Movie', back_populates='actors')
